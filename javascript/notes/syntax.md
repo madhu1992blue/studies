@@ -189,3 +189,11 @@ console.log(typeof null); // object
         - When name is "🐻", [...name] will return ["🐻"].
     - So, .length is the number of 16-bit values and [...name].length is the number of characters. 
 
+
+## String concatenation
+
+- You can concatenate strings using the + operator.
+    ```javascript
+    var str = "Hello" + "World";
+    console.log(str); // HelloWorld
+    ```

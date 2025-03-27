@@ -40,6 +40,7 @@ In the above example, the resolveOuter is called immediately with a promise valu
     - If the promise passed to resolve is rejected, the current promise is rejected with the same reason.
 - If the resolve callback is called with a non-promise value, the current promise is resolved and fulfilled. 
 - If the reject callback is called with a value, the current promise is rejected.
+- If an error is thrown in the executor function, the current promise is rejected with the error thrown.
 
 ```javascript
 
@@ -154,3 +155,24 @@ function onRejected(reason){
 
 p.then(onFulfilled).then(onFulfilled).then(onFulfilled).catch(onRejected); // The then method is chained with another then method.
 ```
+
+## How to wait for promise to settle?
+
+The `await` keyword can be used to wait for a promise to settle. The `await` keyword can only be used inside an `async` function.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  resolve('Success');
+});
+
+async function main(){
+  let value = await p;
+  console.log(value);
+}
+
+main();
+```
+
+# Caution
+
+If a promise is neither fulfilled nor rejected, it will always remain pending. So, always make sure to resolve or reject a promise. 

@@ -129,6 +129,7 @@ console.log(person.name); // This will print 'Jane'
 class Person {
     
     #name;
+    #address = '123 Main St'; // Private field with default value
     static #count = 0; // Private static field
     constructor(name){
         this.#name = name;
@@ -152,6 +153,8 @@ console.log(person.name); // This will print 'John'
 person.name = 'Jane';
 console.log(person.name); // This will print 'Jane'
 ```
+
+Note: private fields are not inherited by derived classes.
 
 ## Class Expressions
 

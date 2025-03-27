@@ -162,3 +162,74 @@ console.log(name); // This will print 'John'
 console.log(age); // This will print 30
 ```
 
+## Destructuring an array 
+
+```javascript
+function getNumbers(){
+    return [1, 2, 3];
+}
+
+const [a, b, c] = getNumbers();
+
+console.log(a); // This will print 1
+console.log(b); // This will print 2
+console.log(c); // This will print 3
+```
+
+You can use default values.
+
+```javascript
+function getNumbers(){
+    return [1];
+}
+
+const [a, b = 2, c = 3] = getNumbers();
+
+console.log(a); // This will print 1
+console.log(b); // This will print 2    
+console.log(c); // This will print 3
+```
+
+You can use the rest operator to get the remaining elements.
+
+```javascript
+function getNumbers(){
+    return [1, 2, 3, 4, 5];
+}
+
+const [a, b, ...rest] = getNumbers();
+
+console.log(a); // This will print 1
+console.log(b); // This will print 2
+console.log(rest); // This will print [3, 4, 5]
+```
+
+Over destructuring an array will result in undefined for variables with no rest syntax and no default values.
+For variables with rest syntax, the rest variable will be an empty array.
+
+```javascript
+function getNumbers(){
+    return [1, 2];
+}
+
+const [a, b, c] = getNumbers();
+
+console.log(a); // This will print 1  
+console.log(b); // This will print 2
+
+console.log(c); // This will print undefined
+```
+
+```javascript
+function getNumbers(){
+    return [1, 2];
+}
+
+const [a, b, ...rest] = getNumbers();
+
+console.log(a); // This will print 1
+console.log(b); // This will print 2
+
+console.log(rest); // This will print []
+```
+

@@ -129,12 +129,21 @@ const person = new Person('John');
 console.log(Object.getPrototypeOf(person)); // prints "{}"
 
 const employee = new Employee('John', "Developer");
-console.log(Object.getPrototypeOf(employee)); // prints "Person {}" and not "Employee {}". So, parent class is printed as prototype.
+console.log(Object.getPrototypeOf(employee) === Employee.prototype); // true
 
 const manager = new Manager('John');
-console.log(Object.getPrototypeOf(manager)); // prints "Employee {}" and not "Manager {}". So, parent class is printed as prototype.
+console.log(Object.getPrototypeOf(manager) === Manager.prototype); // true
 
+console.log(Object.getPrototypeOf(Manger.prototype) === Employee.prototype); // true
+
+console.log(Object.getPrototypeOf(Employee.prototype) === Person.prototype); // true
+
+console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // true
+
+console.log(Object.getPrototypeOf(Object.prototype) === null); // true
 ```
+
+When you read something like String.prototype.toUpperCase(), it means that the prototype of the String object has a method called toUpperCase. This is how the prototype chain works.
 
 One can also create a child object from another object using `Object.create()` method.
 

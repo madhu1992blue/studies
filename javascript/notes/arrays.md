@@ -102,3 +102,16 @@ const arr = [1, 2, 3];
 arr = [4, 5, 6]; // This will throw an error as we are trying to reassign the variable.
 ```
 
+# Array .forEach method
+
+Execute a function for each element of an array.
+
+```javascript
+
+const arr = [1, 2, 3, 4, 5];
+
+arr.forEach((num) => {
+    console.log(num);
+});
+
+```

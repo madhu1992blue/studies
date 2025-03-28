@@ -272,3 +272,12 @@ We need to use `.default` to access the default export of an ES6 module in a Com
     ```javascript
     const add = require('./add.js').default; // Note that you need to use .default to access the default export.
     ```
+
+
+
+## ES6 Modules in Browser has few advantages
+
+- Definitions in module are not in global scope. They are in module scope.
+- You can use `import` and `export` statements in the module.
+- Modules are deferred by default. You don't need to use the `defer` attribute in the script tag. They only run after the document is parsed.
+- Strict mode is enabled by default. You don't need to use the `use strict` statement in the module.

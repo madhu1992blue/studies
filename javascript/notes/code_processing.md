@@ -64,6 +64,9 @@ The above will transpile all files in the src directory and output them to the t
 
 Bundlers are tools that take all your JS files and combine them into a single file. This can help reduce the number of requests made to the server and improve performance. 
 There are some popular bundlers like Webpack, Parcel, Rollup, Vite, etc.
+They can minify the code, remove unused code, and optimize the code for production. 
+Then can even code split the code into multiple files for better performance so that chunks of code are loaded only when needed.
+They also create source maps for debugging purposes so that you can see the original code in the browser instead of the minified code.
 
 Installing vite:
 
@@ -76,18 +79,32 @@ Configure vite:
 Create a file named `vite.config.js` in the root of your project.
 
 ```js
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/index.js',
-      name: 'MyLib',
-      fileName: (format) => `mylib.${format}.js`,
-    }
-  }
+      entry: "src/index.js",
+      formats: ["es"],
+    },
+  },
 });
 ```
+
+We are saying we want to create a library (build.lib). We ask vite to use the entry file src/index.js and create a library in ES format starting from the entry file. We ask for the ES format because we want to use the latest JS features.
+It automatically creates a dist directory with the bundled files. The file will be named same as the module name in the package.json file.
+Ex: If package.json file has the name "my-project", the output file will be dist/my-project.js.
+
+We can adjust the script in the package.json file to run vite:
+
+```json
+{
+  "scripts": {
+    "build": "vite build"
+  }
+}
+```
+This will allow us to run the command `npm run build` to run vite.
 
 Run vite:
 

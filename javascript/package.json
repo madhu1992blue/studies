@@ -1,9 +1,11 @@
 {
-  "name": "javascript",
+  "name": "madhusudan-js",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "build": "vite build",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "start": "node dist/madhusudan-js.js"
   },
   "author": "",
   "license": "ISC",
